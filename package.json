@@ -1,0 +1,24 @@
+{
+  "name": "etozhkirill.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export -o build/",
+    "start": "serve build"
+  },
+  "keywords": [],
+  "author": "Kirill Kvashonin <etozhkirill@yandex.ru>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "next": "^10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.4",
+    "serve": "^11.3.2",
+    "typescript": "^4.2.4"
+  }
+}
