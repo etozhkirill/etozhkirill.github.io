@@ -1,0 +1,8 @@
+.block {
+  $size: 216px;
+  width: $size;
+  height: $size;
+  background: {
+    image: url(~@src/assets/images/memoji2.png);
+  }
+}
