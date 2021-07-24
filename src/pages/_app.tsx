@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app';
 
-import Root from '@src/components/layout/root';
+import Root from '@/components/layout/root';
 
-import '@src/styles/main.scss';
+import '@/styles/main.scss';
 
 export default function App({Component, pageProps}: AppProps) {
   return (

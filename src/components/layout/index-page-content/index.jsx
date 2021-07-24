@@ -1,4 +1,4 @@
-import memojiImg from '@src/assets/images/memoji.png';
+import memojiImg from '@/assets/images/memoji.png';
 
 import styles from './styles.module.scss';
 
