@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 
-import Root from '@/components/layout/root';
+import Root from '@/components/root';
 
 import '@/styles/main.scss';
 

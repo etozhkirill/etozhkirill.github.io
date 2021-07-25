@@ -1,4 +1,4 @@
-import IndexPageContent from '@/components/layout/index-page-content';
+import IndexPageContent from '@/components/index-page-content';
 
 export default function IndexPage() {
   return (
