@@ -1,6 +1,10 @@
+import classnames from 'classnames/bind';
+
 import memojiImg from '@/assets/images/memoji.png';
 
-import styles from './styles.module.scss';
+import styles from './IndexPageContent.module.scss';
+
+const cx = classnames.bind(styles);
 
 export default function IndexPageContent() {
   return (
