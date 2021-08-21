@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@import '@/styles/mixins';
+
+.col {
+  flex: 1 1 0;
+  padding: 0 $col-padding;
+
+  @each $breakpoint-name, $breakpoint-val in $grid-breakpoints {
+    @for $i from 1 through $grid-columns {
+      &_#{$breakpoint-name}_#{$i} {
+        @include media-breakpoint-up($breakpoint-name) {
+          flex: 0 0 auto;
+          width: percentage(math.div($i, $grid-columns));
+        }
+      }
+    }
+  }
+}

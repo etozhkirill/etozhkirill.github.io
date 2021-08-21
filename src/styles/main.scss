@@ -8,4 +8,12 @@ body {
   font-weight: normal;
   font-family: 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   font-style: normal;
+
+  * {
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
 }

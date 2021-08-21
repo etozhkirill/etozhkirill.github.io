@@ -1,0 +1,9 @@
+@import '@/styles/mixins';
+
+.header {
+  display: flex;
+}
+
+.header__logo {
+  margin-right: auto;
+}
