@@ -1,0 +1,14 @@
+@import '@/styles/mixins';
+
+.logo {
+  @include link-reset;
+
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: inherit;
+}
+
+.logo__text {
+  margin-left: 8px;
+}

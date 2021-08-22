@@ -2,8 +2,26 @@
 
 .header {
   display: flex;
+  padding: 16px 0;
 }
 
 .header__logo {
   margin-right: auto;
+}
+
+.header__nav,
+.header__theme-switcher {
+  margin-left: 16px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav__item {
+  @include link-reset;
+
+  & + #{&} {
+    margin-left: 8px;
+  }
 }

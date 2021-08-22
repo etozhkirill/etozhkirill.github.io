@@ -16,6 +16,7 @@ module.exports = {
     'order/properties-order': [],
     'plugin/rational-order': true,
     'prettier/prettier': true,
-    'scss/at-rule-no-unknown': true
+    'scss/at-rule-no-unknown': true,
+    'no-invalid-position-at-import-rule': null
   }
 };
