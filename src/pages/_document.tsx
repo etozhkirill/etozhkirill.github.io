@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { defaultThemeClassName } from '@/constants/themeClassNames';
+
 class CustomDocument extends Document {
   render() {
     return (
@@ -13,7 +15,8 @@ class CustomDocument extends Document {
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="manifest" href="/manifest.webmanifest" />
         </Head>
-        <body>
+        <body className={defaultThemeClassName}>
+          <script src="/scripts/detecting-theme.js" />
           <Main />
           <NextScript />
         </body>

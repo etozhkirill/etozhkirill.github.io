@@ -1,14 +1,17 @@
 @import '@/assets/fonts/pt_sans/stylesheet.css';
 @import '@/assets/fonts/pt_serif/stylesheet.css';
 
+@import './theme.scss';
+
 body {
   margin: 0;
   padding: 0;
-  color: var(--theme-color-content-black);
+  color: var(--color-text);
   font-weight: normal;
   font-size: 16px;
   font-family: 'PT Sans', 'Helvetica', 'Arial', sans-serif;
   font-style: normal;
+  background: var(--body-background);
 
   * {
     &,

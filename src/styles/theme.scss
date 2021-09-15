@@ -1,0 +1,9 @@
+.theme {
+  --color-text: #000;
+  --body-background: #fff;
+
+  &_dark {
+    --color-text: #fff;
+    --body-background: #000;
+  }
+}

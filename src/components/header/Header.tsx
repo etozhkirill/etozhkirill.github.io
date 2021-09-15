@@ -1,16 +1,27 @@
 import classnames from 'classnames/bind';
+import dynamic from 'next/dynamic';
 import React from 'react';
 
 import Col from '@/components/Col';
 import Container from '@/components/Container';
-import Logo from '@/components/Logo';
 import Row from '@/components/Row';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
 import GenericProps from '@/types/GenericProps';
 
 import styles from './Header.module.scss';
 
 const cx = classnames.bind(styles);
+
+const DynamicLogo = dynamic(() => import('@/components/Logo'), {
+  ssr: false,
+  loading() {
+    return <a href="/">Кирилл Квашонин</a>;
+  }
+});
+
+const DynamicThemeSwitcher = dynamic(
+  () => import('@/components/ThemeSwitcher'),
+  { ssr: false }
+);
 
 export default function Header({
   className,
@@ -23,7 +34,7 @@ export default function Header({
           <Col>
             <div className={cx('header')}>
               <div className={cx('header__logo')}>
-                <Logo />
+                <DynamicLogo />
               </div>
               <nav className={cx('header__nav', 'nav')}>
                 <a className={cx('nav__item')} href="#">
@@ -34,7 +45,7 @@ export default function Header({
                 </a>
               </nav>
               <div className={cx('header__theme-switcher')}>
-                <ThemeSwitcher />
+                <DynamicThemeSwitcher />
               </div>
             </div>
           </Col>

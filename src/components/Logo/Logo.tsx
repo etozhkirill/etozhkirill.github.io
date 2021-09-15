@@ -3,6 +3,7 @@ import React from 'react';
 
 import logoBlackImg from '@/assets/images/logo_black.svg';
 import logoWhiteImg from '@/assets/images/logo_white.svg';
+import { useThemeContext } from '@/contexts/theme';
 import GenericProps from '@/types/GenericProps';
 
 import styles from './Logo.module.scss';
@@ -18,8 +19,9 @@ export default function Logo({
   showText = true,
   ...props
 }: Props): React.ReactElement {
-  // TODO: change depending on theme
-  const logoSrc = logoBlackImg.src;
+  const { activeThemeName } = useThemeContext();
+  const logoSrc =
+    activeThemeName === 'dark' ? logoWhiteImg.src : logoBlackImg.src;
 
   return (
     <a className={cx('logo', className)} href="/" {...props}>
