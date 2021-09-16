@@ -18,7 +18,19 @@ export default function Footer({
     <div className={cx('footer-wrapper', className)} {...props}>
       <Container>
         <Row>
-          <Col>footer here</Col>
+          <Col>
+            <div className={cx('footer')}>
+              © Спроектировано и разработано{' '}
+              <a
+                href="https://github.com/etozhkirill"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @etozhkirill
+              </a>{' '}
+              2017..2021.
+            </div>
+          </Col>
         </Row>
       </Container>
     </div>

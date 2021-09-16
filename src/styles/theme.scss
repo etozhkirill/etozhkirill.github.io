@@ -1,9 +1,23 @@
+$base: #1c1e21;
+$base_dark: #f5f6f7;
+$accent: #0f4c81;
+
 .theme {
-  --color-text: #000;
+  --color-accent: #{$accent};
+  --color-text: #{$base};
+  --color-title: #44494f;
   --body-background: #fff;
+  --color-theme-switcher-button-active: #fff;
+  --color-theme-switcher-icon: #{$accent};
+  --color-theme-switcher-fieldset: #{darken($base_dark, 2%)};
 
   &_dark {
-    --color-text: #fff;
-    --body-background: #000;
+    --color-accent: #{lighten($accent, 50%)};
+    --color-text: #{$base_dark};
+    --color-title: #{$base_dark};
+    --body-background: #18191a;
+    --color-theme-switcher-button-active: #fff;
+    --color-theme-switcher-icon: #{$accent};
+    --color-theme-switcher-fieldset: #{darken($base_dark, 10%)};
   }
 }
