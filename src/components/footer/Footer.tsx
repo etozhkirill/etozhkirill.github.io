@@ -4,8 +4,8 @@ import React from 'react';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
-import GenericProps from '@/types/GenericProps';
 import SocialLinks from '@/components/SocialLinks';
+import GenericProps from '@/types/GenericProps';
 
 import styles from './Footer.module.scss';
 
