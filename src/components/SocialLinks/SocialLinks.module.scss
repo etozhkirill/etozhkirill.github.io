@@ -1,0 +1,25 @@
+@import '@/styles/mixins';
+
+.social-links {
+  display: flex;
+}
+
+.social-links__item {
+  @include transition-default();
+
+  margin-left: 8px;
+  fill: var(--color-link);
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:hover {
+    fill: var(--color-link-lighten);
+  }
+
+  &:active {
+    transform: scale(0.9);
+    fill: var(--color-link-darken);
+  }
+}

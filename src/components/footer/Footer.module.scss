@@ -1,0 +1,14 @@
+@import '@/styles/mixins';
+
+.footer {
+  padding: 16px 0 32px 0;
+}
+
+.footer__text {
+  margin-bottom: 16px;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+}

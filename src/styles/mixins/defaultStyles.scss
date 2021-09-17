@@ -1,0 +1,16 @@
+@import './transitions';
+
+@mixin link {
+  @include transition-default();
+
+  color: var(--color-link);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-link-lighten);
+  }
+
+  &:active {
+    color: var(--color-link-darken);
+  }
+}

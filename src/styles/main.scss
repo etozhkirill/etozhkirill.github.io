@@ -2,6 +2,7 @@
 @import '@/assets/fonts/pt_serif/stylesheet.css';
 
 @import './theme.scss';
+@import './mixins.scss';
 
 body {
   margin: 0;
@@ -20,4 +21,8 @@ body {
       box-sizing: border-box;
     }
   }
+}
+
+a {
+  @include link();
 }
