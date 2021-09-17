@@ -1,13 +1,13 @@
 import classnames from 'classnames/bind';
 import React from 'react';
 
+import autoModeIcon from '@/assets/icons/autoMode.svg';
+import darkModeIcon from '@/assets/icons/darkMode.svg';
+import lightModeIcon from '@/assets/icons/lightMode.svg';
+import Icon from '@/components/Icon';
 import { useThemeContext } from '@/contexts/theme';
 import GenericProps from '@/types/GenericProps';
 import ThemeName from '@/types/ThemeName';
-import Icon from '@/components/Icon';
-import lightModeIcon from '@/assets/icons/lightMode.svg';
-import darkModeIcon from '@/assets/icons/darkMode.svg';
-import autoModeIcon from '@/assets/icons/autoMode.svg';
 
 import styles from './ThemeSwitcher.module.scss';
 
