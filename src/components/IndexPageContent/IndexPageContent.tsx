@@ -6,15 +6,21 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import GenericProps from '@/types/GenericProps';
+import NoteFileContent from '@/types/NoteFileContent';
 
 import styles from './IndexPageContent.module.scss';
 
 const cx = classnames.bind(styles);
 
+interface Props extends GenericProps {
+  notes: NoteFileContent[];
+}
+
 export default function IndexPageContent({
   className,
+  notes,
   ...props
-}: GenericProps): React.ReactElement {
+}: Props): React.ReactElement {
   return (
     <div className={cx('index-page-content', className)} {...props}>
       <Container>
@@ -37,6 +43,17 @@ export default function IndexPageContent({
                 <img src={memojiImg.src} alt="memoji" />
               </div>
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {notes.map((note, index) => (
+              <div key={index}>
+                <div>{note.data.title}</div>
+                <div>{note.data.description}</div>
+                <div>{note.data.date}</div>
+              </div>
+            ))}
           </Col>
         </Row>
       </Container>
