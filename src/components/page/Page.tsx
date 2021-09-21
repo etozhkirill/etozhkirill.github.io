@@ -1,9 +1,18 @@
-import classnames from 'classnames/bind';
+import React from 'react';
 
-import styles from './Page.module.scss';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
-const cx = classnames.bind(styles);
+interface Props {
+  children: React.ReactNode;
+}
 
-export default function Page() {
-  return <div>page here</div>;
+export default function Page({ children }: Props): React.ReactElement {
+  return (
+    <React.Fragment>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </React.Fragment>
+  );
 }

@@ -1,25 +1,24 @@
-import { InferGetStaticPropsType } from 'next';
+import { InferGetStaticPropsType, GetStaticProps } from 'next';
 import React from 'react';
 
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import IndexPageContent from '@/components/IndexPageContent';
+import Page from '@/components/Page';
 import { getNotes } from '@/helpers/notes';
+import NoteFileContent from '@/types/NoteFileContent';
 
 export default function IndexPage({
   notes
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <React.Fragment>
-      <Header />
+    <Page>
       <IndexPageContent notes={notes} />
-      <Footer />
-    </React.Fragment>
+    </Page>
   );
 }
 
-export async function getStaticProps() {
-  const notes = await getNotes();
+export const getStaticProps: GetStaticProps<{ notes: NoteFileContent[] }> =
+  async () => {
+    const notes = await getNotes();
 
-  return { props: { notes } };
-}
+    return { props: { notes } };
+  };

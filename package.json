@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev --port 8080",
-    "build": "next build && next export -o build/",
+    "build": "next build && next export -o build/ && node ./scripts/postbuild.js",
     "start": "serve build",
     "lint": "npm-run-all 'lint:*' --parallel --continue-on-error --aggregate-output",
     "lint-fix": "npm-run-all 'lint:* -- --fix' --parallel --continue-on-error --aggregate-output",
@@ -31,6 +31,7 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
+    "cpy": "^8.1.2",
     "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
