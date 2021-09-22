@@ -1,4 +1,5 @@
 import classnames from 'classnames/bind';
+import Link from 'next/link';
 import React from 'react';
 
 import memojiImg from '@/assets/images/memoji.png';
@@ -6,14 +7,14 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import GenericProps from '@/types/GenericProps';
-import NoteFileContent from '@/types/NoteFileContent';
+import { NoteFileShortContent } from '@/types/NoteFileContent';
 
 import styles from './IndexPageContent.module.scss';
 
 const cx = classnames.bind(styles);
 
 interface Props extends GenericProps {
-  notes: NoteFileContent[];
+  notes: NoteFileShortContent[];
 }
 
 export default function IndexPageContent({
@@ -65,11 +66,17 @@ export default function IndexPageContent({
 
   function renderLatestNotes() {
     return notes.map((note, index) => (
-      <div className={cx('note')} key={index}>
-        <div className={cx('note__title')}>{note.data.title}</div>
-        <div className={cx('note__description')}>{note.data.description}</div>
-        <div className={cx('note__date')}>{note.data.date}</div>
-      </div>
+      <Link key={index} href={`/notes/${note.slug}`}>
+        <a>
+          <div className={cx('note')}>
+            <div className={cx('note__title')}>{note.data.title}</div>
+            <div className={cx('note__description')}>
+              {note.data.description}
+            </div>
+            <div className={cx('note__date')}>{note.data.date}</div>
+          </div>
+        </a>
+      </Link>
     ));
   }
 }

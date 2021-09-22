@@ -444,12 +444,11 @@ $(document).ready(() => {
 Вы можете работать с полной версией данного demo используя CodePen ниже.
 
 <div>
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="MRezop" data-user="cfjedimaster" style=" display: flex; align-items: center; justify-content: center; box-sizing: border-box;height: 300px; margin: 1em 0; padding: 1em; border: 2px solid;">
-  <span>See the Pen <a href="https://codepen.io/cfjedimaster/pen/MRezop">
+<iframe height="300" style="width: 100%;" scrolling="no" title="jQuery Full" src="https://codepen.io/cfjedimaster/embed/MRezop?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/cfjedimaster/pen/MRezop">
   jQuery Full</a> by Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 </div>
 
 Теперь давайте рассмотрим Vue версию. И вновь начнем с разметки:
@@ -543,12 +542,11 @@ const app = new Vue({
 Как и раньше, у меня есть для вас CodePen, чтобы вы могли попробовать это самостоятельно:
 
 <div>
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="wZWQLz" data-user="cfjedimaster" style=" display: flex; align-items: center; justify-content: center; box-sizing: border-box;height: 300px; margin: 1em 0; padding: 1em; border: 2px solid;">
-  <span>See the Pen <a href="https://codepen.io/cfjedimaster/pen/wZWQLz">
+<iframe height="300" style="width: 100%;" scrolling="no" title="Vue Full" src="https://codepen.io/cfjedimaster/embed/wZWQLz?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/cfjedimaster/pen/wZWQLz">
   Vue Full</a> by Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 </div>
 
 ### Смерть jQuery! Да здравствует Vue!

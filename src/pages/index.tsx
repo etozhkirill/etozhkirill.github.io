@@ -3,8 +3,8 @@ import React from 'react';
 
 import IndexPageContent from '@/components/IndexPageContent';
 import Page from '@/components/Page';
-import { getNotes } from '@/helpers/notes';
-import NoteFileContent from '@/types/NoteFileContent';
+import { getNotes } from '@/services/notes';
+import { NoteFileShortContent } from '@/types/NoteFileContent';
 
 export default function IndexPage({
   notes
@@ -16,7 +16,7 @@ export default function IndexPage({
   );
 }
 
-export const getStaticProps: GetStaticProps<{ notes: NoteFileContent[] }> =
+export const getStaticProps: GetStaticProps<{ notes: NoteFileShortContent[] }> =
   async () => {
     const notes = await getNotes();
 

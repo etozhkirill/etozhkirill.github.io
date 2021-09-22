@@ -2,12 +2,14 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
 
-import NoteFileContent from '@/types/NoteFileContent';
+import { NoteFileContent, NoteFileShortContent } from '@/types/NoteFileContent';
 
 const notesFolderPath = path.join(process.cwd(), 'content/notes');
 
-export async function getNotes(): Promise<NoteFileContent[]> {
+export async function getNotes(): Promise<NoteFileShortContent[]> {
   const noteFolderNames = await fs.readdir(notesFolderPath);
   const noteContentsPromises = noteFolderNames.map(async (noteFolderName) => {
     const noteFileName = await getNoteFileName(noteFolderName);
@@ -19,9 +21,9 @@ export async function getNotes(): Promise<NoteFileContent[]> {
       noteFileName
     );
     const noteFileContent = await fs.readFile(noteFilePath, 'utf8');
-    const { content, data } = matter(noteFileContent);
+    const { data } = matter(noteFileContent);
 
-    return { slug: noteFolderName, content, data };
+    return { slug: noteFolderName, data };
   });
 
   const noteContents = await Promise.all(noteContentsPromises);
@@ -37,9 +39,17 @@ export async function getNote(
 
   const noteFilePath = path.join(notesFolderPath, noteFolderName, noteFileName);
   const noteFileContent = await fs.readFile(noteFilePath, 'utf8');
-  const { content, data } = matter(noteFileContent);
+  const matterResult = matter(noteFileContent);
+  const processedContent = await remark()
+    .use(html, { sanitize: false })
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
 
-  return { slug: noteFolderName, content, data };
+  return {
+    slug: noteFolderName,
+    content: contentHtml,
+    data: matterResult.data
+  };
 }
 
 export async function getNoteSlugs(): Promise<string[]> {
