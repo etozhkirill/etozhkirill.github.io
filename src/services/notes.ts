@@ -2,8 +2,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import remark from 'remark';
+import remarkHtml from 'remark-html';
 
 import { NoteFileContent, NoteFileShortContent } from '@/types/NoteFileContent';
 
@@ -41,7 +41,7 @@ export async function getNote(
   const noteFileContent = await fs.readFile(noteFilePath, 'utf8');
   const matterResult = matter(noteFileContent);
   const processedContent = await remark()
-    .use(html, { sanitize: false })
+    .use(remarkHtml, { sanitize: false })
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
