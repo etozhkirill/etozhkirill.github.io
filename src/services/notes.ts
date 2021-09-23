@@ -9,7 +9,7 @@ import { NoteFileContent, NoteFileShortContent } from '@/types/NoteFileContent';
 
 const notesFolderPath = path.join(process.cwd(), 'content/notes');
 
-export async function getNotes(): Promise<NoteFileShortContent[]> {
+export async function getNoteList(): Promise<NoteFileShortContent[]> {
   const noteFolderNames = await fs.readdir(notesFolderPath);
   const noteContentsPromises = noteFolderNames.map(async (noteFolderName) => {
     const noteFileName = await getNoteFileName(noteFolderName);
@@ -52,7 +52,7 @@ export async function getNote(
   };
 }
 
-export async function getNoteSlugs(): Promise<string[]> {
+export async function getNoteSlugList(): Promise<string[]> {
   const noteFolderNames = await fs.readdir(notesFolderPath);
   const resultNoteFolderNamesPromises = noteFolderNames.map(
     async (noteFolderName) => {
