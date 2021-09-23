@@ -34,5 +34,5 @@ const assetsFolderName = 'assets';
 
   await Promise.all(copyingPromises);
 
-  console.log('End copying.');
+  console.log('Assets were copied to build.');
 })();
