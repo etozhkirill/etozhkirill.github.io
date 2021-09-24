@@ -5,7 +5,7 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Page from '@/components/Page';
 import Row from '@/components/Row';
-import { getNote, getNoteSlugList } from '@/services/notes';
+import noteService from '@/services/NoteService';
 import { NoteFileContent } from '@/types/NoteFileContent';
 
 export default function NotePage({
@@ -26,7 +26,7 @@ export default function NotePage({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const noteSlugs = await getNoteSlugList();
+  const noteSlugs = await noteService.getNoteSlugList();
 
   const paths = noteSlugs.map((slug) => ({ params: { slug } }));
 
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<{ note: NoteFileContent }> =
   async ({ params }) => {
     const { slug } = params;
     const noteFolderName = Array.isArray(slug) ? slug[0] : slug;
-    const note = await getNote(noteFolderName);
+    const note = await noteService.getNote(noteFolderName);
 
     return { props: { note } };
   };

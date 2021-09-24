@@ -3,7 +3,7 @@ import React from 'react';
 
 import IndexPageContent from '@/components/IndexPageContent';
 import Page from '@/components/Page';
-import { getNoteList } from '@/services/notes';
+import noteService from '@/services/NoteService';
 import { NoteFileShortContent } from '@/types/NoteFileContent';
 
 export default function IndexPage({
@@ -18,7 +18,7 @@ export default function IndexPage({
 
 export const getStaticProps: GetStaticProps<{ notes: NoteFileShortContent[] }> =
   async () => {
-    const notes = await getNoteList();
+    const notes = await noteService.getNoteList();
 
     return { props: { notes } };
   };
