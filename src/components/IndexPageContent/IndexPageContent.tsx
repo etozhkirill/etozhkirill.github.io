@@ -25,9 +25,9 @@ export default function IndexPageContent({
   return (
     <div className={cx('index-page-content', className)} {...props}>
       <div className={cx('index-page-content__jumbotron')}>
-        <Container>
-          <Row className={cx('row')}>
-            <Col className={cx('col')}>
+        <Container className={cx('jumbotron')}>
+          <Row className={cx('jumbotron__row')}>
+            <Col className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <h1 className={cx('content__title')}>
                   Привет! <br />
@@ -39,7 +39,7 @@ export default function IndexPageContent({
                 </div>
               </div>
             </Col>
-            <Col className={cx('col')}>
+            <Col className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <div className={cx('content__image')}>
                   <img src={memojiImg.src} alt="memoji" />

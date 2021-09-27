@@ -3,7 +3,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 24px 0;
 }
 
 .header__logo {
@@ -14,11 +14,18 @@
 
 .header__nav,
 .header__theme-switcher {
+  display: none;
   margin-left: 32px;
+
+  @include tablet-up {
+    display: flex;
+  }
 }
 
-.nav {
-  display: flex;
+.header__burger-button {
+  @include tablet-up {
+    display: none;
+  }
 }
 
 .nav__item {
@@ -26,5 +33,26 @@
 
   & + #{&} {
     margin-left: 16px;
+  }
+}
+
+.burger-button {
+  @include button-reset;
+  @include transition-default;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke: var(--color-link);
+  stroke: var(--color-text);
+
+  &:hover {
+    stroke: var(--color-link-lighten);
+  }
+
+  &:active {
+    transform: scale(0.9);
+    transition: none;
+    stroke: var(--color-link-darken);
   }
 }

@@ -2,3 +2,13 @@
   color: inherit;
   text-decoration: inherit;
 }
+
+@mixin button-reset {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

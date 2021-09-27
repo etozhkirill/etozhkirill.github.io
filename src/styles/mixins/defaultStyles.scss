@@ -1,7 +1,7 @@
 @import './transitions';
 
 @mixin link {
-  @include transition-default();
+  @include transition-default;
 
   color: var(--color-link);
   text-decoration: none;
