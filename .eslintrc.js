@@ -53,6 +53,7 @@ module.exports = {
         'newlines-between': 'always'
       }
     ],
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-irregular-whitespace': 'off'
   }
 };

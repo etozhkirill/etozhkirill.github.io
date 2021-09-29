@@ -27,19 +27,19 @@ export default function IndexPageContent({
       <div className={cx('index-page-content__jumbotron')}>
         <Container className={cx('jumbotron')}>
           <Row className={cx('jumbotron__row')}>
-            <Col className={cx('jumbotron__col')}>
+            <Col xs={12} sm={8} md={7} className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <h1 className={cx('content__title')}>
                   Привет! <br />
                   Меня зовут Кирилл.
                 </h1>
                 <div className={cx('content__description')}>
-                  В этом блоге я пишу о веб разработке, перевожу технические
-                  статьи и другое.
+                  В этом блоге я пишу о веб разработке, перевожу технические
+                  статьи и другое.
                 </div>
               </div>
             </Col>
-            <Col className={cx('jumbotron__col')}>
+            <Col xs={12} sm={4} md={5} className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <div className={cx('content__image')}>
                   <img src={memojiImg.src} alt="memoji" />
