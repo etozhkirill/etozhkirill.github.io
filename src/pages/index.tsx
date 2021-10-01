@@ -20,5 +20,5 @@ export const getStaticProps: GetStaticProps<{ notes: NoteFileShortContent[] }> =
   async () => {
     const notes = await noteService.getNoteList();
 
-    return { props: { notes } };
+    return { props: { notes: notes.slice(0, 3) } };
   };

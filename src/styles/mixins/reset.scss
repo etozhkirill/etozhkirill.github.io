@@ -1,6 +1,12 @@
 @mixin link-reset {
   color: inherit;
   text-decoration: inherit;
+
+  &:hover,
+  &:active {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
 
 @mixin button-reset {

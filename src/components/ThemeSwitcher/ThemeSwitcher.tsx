@@ -59,7 +59,9 @@ export default function ThemeSwitcher({
             title={themes[themeName].text}
           >
             <Icon
-              className={cx('label-icon')}
+              className={cx('label-icon', {
+                'label-icon_active': activeThemeName === themeName
+              })}
               width="24"
               height="24"
               href={`${themes[themeName].iconSrc}#shape`}

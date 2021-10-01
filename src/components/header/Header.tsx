@@ -39,12 +39,12 @@ export default function Header({
                   </Link>
                 </div>
                 <nav className={cx('header__nav', 'nav')}>
-                  <a className={cx('nav__item')} href="#">
-                    Блог
-                  </a>{' '}
-                  <a className={cx('nav__item')} href="#">
-                    Обо мне
-                  </a>
+                  <Link href="/notes">
+                    <a className={cx('nav__item')}>Блог</a>
+                  </Link>{' '}
+                  <Link href="/about">
+                    <a className={cx('nav__item')}>Обо мне</a>
+                  </Link>
                 </nav>
                 <div className={cx('header__theme-switcher')}>
                   <DynamicThemeSwitcher />

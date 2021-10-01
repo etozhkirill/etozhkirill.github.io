@@ -5,6 +5,8 @@ import React from 'react';
 import memojiImg from '@/assets/images/memoji.png';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
+import LazyImage from '@/components/LazyImage';
+import NoteCard from '@/components/NoteCard';
 import Row from '@/components/Row';
 import GenericProps from '@/types/GenericProps';
 import { NoteFileShortContent } from '@/types/NoteFileContent';
@@ -27,7 +29,7 @@ export default function IndexPageContent({
       <div className={cx('index-page-content__jumbotron')}>
         <Container className={cx('jumbotron')}>
           <Row className={cx('jumbotron__row')}>
-            <Col xs={12} sm={8} md={7} className={cx('jumbotron__col')}>
+            <Col xs={12} sm={6} md={7} className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <h1 className={cx('content__title')}>
                   Привет! <br />
@@ -39,7 +41,7 @@ export default function IndexPageContent({
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={4} md={5} className={cx('jumbotron__col')}>
+            <Col xs={12} sm={6} md={5} className={cx('jumbotron__col')}>
               <div className={cx('content')}>
                 <div className={cx('content__image')}>
                   <img src={memojiImg.src} alt="memoji" />
@@ -53,12 +55,10 @@ export default function IndexPageContent({
         <Container>
           <Row>
             <Col>
-              <div className={cx('latest-notes__title')}>Последние записи</div>
-              <div className={cx('latest-notes__list')}>
-                {renderLatestNotes()}
-              </div>
+              <h3 className={cx('last-notes-title')}>Последние записи</h3>
             </Col>
           </Row>
+          <Row>{renderLatestNotes()}</Row>
         </Container>
       </div>
     </div>
@@ -66,17 +66,9 @@ export default function IndexPageContent({
 
   function renderLatestNotes() {
     return notes.map((note, index) => (
-      <Link key={index} href={`/notes/${note.slug}`}>
-        <a>
-          <div className={cx('note')}>
-            <div className={cx('note__title')}>{note.data.title}</div>
-            <div className={cx('note__description')}>
-              {note.data.description}
-            </div>
-            <div className={cx('note__date')}>{note.data.date}</div>
-          </div>
-        </a>
-      </Link>
+      <Col xs={12} lg={4} key={index} className={cx('notes-list-col')}>
+        <NoteCard note={note} />
+      </Col>
     ));
   }
 }

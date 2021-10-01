@@ -1,7 +1,14 @@
+@use 'sass:math';
+
 @import '@/styles/mixins';
 
 .index-page-content__jumbotron {
-  margin: 80px 0;
+  padding: 60px 0;
+  background: var(--background-secondary);
+
+  @include tablet-up {
+    padding: 80px 0;
+  }
 }
 
 .index-page-content__last-notes {
@@ -23,7 +30,7 @@
 
 .content__description {
   margin-bottom: 32px;
-  color: var(--color-title);
+  color: var(--color-text-light);
   font-size: 20px;
   line-height: 24px;
 
@@ -37,4 +44,17 @@
   img {
     max-width: 300px;
   }
+}
+
+.last-notes-title {
+  @include title-medium;
+
+  margin-bottom: 32px;
+  color: var(--color-title);
+  font-weight: bold;
+  text-align: center;
+}
+
+.notes-list-col {
+  margin-bottom: 20px;
 }

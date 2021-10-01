@@ -10,7 +10,7 @@ $grid-breakpoints: (
   'xl': 1200px
 );
 
-$container-max-width: 910px;
+$container-max-width: map-get($grid-breakpoints, lg);
 $container-min-width: 320px;
 
 $grid-columns: 12;

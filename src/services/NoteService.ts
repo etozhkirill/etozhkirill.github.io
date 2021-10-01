@@ -47,7 +47,13 @@ export class NoteService {
 
     const noteContents = await Promise.all(noteContentsPromises);
 
-    return noteContents.filter(filterByNull);
+    return noteContents
+      .filter(filterByNull)
+      .sort(
+        (note1, note2) =>
+          new Date(note2.data.date).getTime() -
+          new Date(note1.data.date).getTime()
+      );
   }
 
   async getNote(noteFolderName: string): Promise<NoteFileContent | null> {
@@ -93,6 +99,10 @@ export class NoteService {
 }
 
 export default new NoteService();
+
+function sortByDate(date1: string, date2: string) {
+  return new Date(date2).getTime() - new Date(date1).getTime();
+}
 
 function filterByNull(val) {
   return val != null;

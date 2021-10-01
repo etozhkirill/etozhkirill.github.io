@@ -54,6 +54,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@next/next/no-img-element': 'off',
     'no-irregular-whitespace': 'off'
   }
 };

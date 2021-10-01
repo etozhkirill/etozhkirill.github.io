@@ -30,6 +30,9 @@
 
 .nav__item {
   @include link-reset;
+  @include link;
+
+  color: inherit;
 
   & + #{&} {
     margin-left: 16px;

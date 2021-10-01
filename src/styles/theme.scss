@@ -1,30 +1,37 @@
-$base: #1c1e21;
-$base_dark: #f5f6f7;
+$black: #121212;
+$white: #fff;
+
 $accent: #1467af;
-$accent-light: lighten($accent, 25);
+$accent_light: lighten($accent, 25);
 
 .theme {
   --color-accent: #{$accent};
   --color-link: #{$accent};
   --color-link-lighten: #{lighten($accent, 10)};
   --color-link-darken: #{darken($accent, 10)};
-  --color-text: #{$base};
-  --color-title: #44494f;
-  --body-background: #fff;
-  --color-theme-switcher-button-active: #fff;
+  --color-text: #{$black};
+  --color-text-light: #{lighten($black, 30%)};
+  --color-title: #{lighten($black, 20)};
+  --body-background: #{$white};
+  --background-secondary: #{darken($white, 2%)};
+  --color-theme-switcher-button-active: #{$white};
   --color-theme-switcher-icon: #{$accent};
-  --color-theme-switcher-fieldset: #{darken($base_dark, 2%)};
+  --color-theme-switcher-fieldset: #{darken($white, 4%)};
+  --color-image-placeholder: #{darken($white, 4%)};
 
   &_dark {
-    --color-accent: #{$accent-light};
-    --color-link: #{$accent-light};
-    --color-link-lighten: #{lighten($accent-light, 10)};
-    --color-link-darken: #{darken($accent-light, 10)};
-    --color-text: #{$base_dark};
-    --color-title: #{$base_dark};
-    --body-background: #18191a;
-    --color-theme-switcher-button-active: #fff;
-    --color-theme-switcher-icon: #{$accent};
-    --color-theme-switcher-fieldset: #{darken($base_dark, 10%)};
+    --color-accent: #{$accent_light};
+    --color-link: #{$accent_light};
+    --color-link-lighten: #{lighten($accent_light, 10)};
+    --color-link-darken: #{darken($accent_light, 10)};
+    --color-text: #{darken($white, 16%)};
+    --color-text-light: #{lighten($black, 60%)};
+    --color-title: #{darken($white, 16%)};
+    --body-background: #{$black};
+    --background-secondary: #{lighten($black, 2%)};
+    --color-theme-switcher-button-active: #{lighten($black, 4%)};
+    --color-theme-switcher-icon: #{$accent_light};
+    --color-theme-switcher-fieldset: #{lighten($black, 8%)};
+    --color-image-placeholder: #{lighten($black, 8%)};
   }
 }

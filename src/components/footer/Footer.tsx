@@ -5,6 +5,7 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import SocialLinks from '@/components/SocialLinks';
+import formatDate from '@/helpers/formatDate';
 import GenericProps from '@/types/GenericProps';
 
 import styles from './Footer.module.scss';
@@ -31,7 +32,7 @@ export default function Footer({
                 >
                   @etozhkirill
                 </a>{' '}
-                2017..
+                2017 - {new Date().getFullYear()}.
               </div>
               <div className={cx('footer__social')}>
                 <SocialLinks />

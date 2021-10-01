@@ -2,18 +2,37 @@
 
 @mixin title-huge {
   font-size: 42px;
-  line-height: 42px;
+  line-height: 1.2;
 
   @include tablet-up {
     font-size: 56px;
-    line-height: 56px;
   }
 }
 
 @mixin title-big {
-  //
+  // TODO:
+  font-size: 21px;
+  line-height: 1.2;
+
+  @include tablet-up {
+    font-size: 32px;
+  }
 }
 
 @mixin title-medium {
-  //
+  font-size: 28px;
+  line-height: 1.2;
+
+  @include tablet-up {
+    font-size: 32px;
+  }
+}
+
+@mixin title-small {
+  font-size: 16px;
+  line-height: 1.2;
+
+  @include tablet-up {
+    font-size: 18px;
+  }
 }

@@ -52,5 +52,9 @@
 }
 
 .label-icon {
-  fill: var(--color-theme-switcher-icon);
+  fill: var(--color-text-light);
+
+  &_active {
+    fill: var(--color-link);
+  }
 }

@@ -1,0 +1,56 @@
+@import '@/styles/mixins';
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  @include transition-default;
+
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  @include transition-default;
+
+  opacity: 0;
+}
+
+.lazy-image {
+  position: relative;
+  line-height: 0;
+}
+
+.lazy-image__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &_adapt-height {
+    height: auto;
+    object-fit: fill;
+  }
+}
+
+.lazy-image__background-image {
+  width: 100%;
+  height: 100%;
+  background: {
+    size: cover;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+.lazy-image__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-image-placeholder);
+}

@@ -1,0 +1,71 @@
+@import '@/styles/mixins';
+
+.note-card-link {
+  @include link-reset;
+}
+
+.note-card {
+  display: flex;
+  flex-flow: column;
+  height: 440px;
+  overflow: hidden;
+  background: var(--background-secondary);
+  border-radius: 8px;
+
+  @include tablet-up {
+    height: 400px;
+  }
+
+  @include desktop-up {
+    height: 440px;
+  }
+
+  &:hover .note-card__title {
+    color: var(--color-link);
+  }
+}
+
+.note-card__content {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  padding: 16px;
+}
+
+/* stylelint-disable-next-line */
+.note-card__title {
+  @include transition-default;
+  @include title-small;
+
+  margin-bottom: 10px;
+  overflow: hidden;
+  color: var(--color-title);
+  font-weight: bold;
+
+  @include desktop-up {
+    height: 46px;
+  }
+}
+
+.note-card__description {
+  margin-bottom: 20px;
+  color: var(--color-text-light);
+}
+
+.note-card__footer {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+}
+
+.footer__date {
+  margin-right: auto;
+  color: var(--color-text-light);
+}
+
+.footer__more {
+  @include link;
+}
