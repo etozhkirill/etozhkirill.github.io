@@ -40,15 +40,47 @@
   }
 }
 
+.content__more {
+  margin-bottom: 32px;
+
+  @include phone-up {
+    margin-bottom: 0;
+  }
+}
+
 .content__image {
   img {
     max-width: 300px;
   }
 }
 
+.more {
+  @include link-reset;
+  @include transition-default;
+
+  display: inline-block;
+  padding: 12px 20px;
+  color: var(--button-color-text);
+  background: var(--button-background);
+  border-radius: 8px;
+
+  &:hover {
+    color: var(--button-color-text);
+    background: var(--button-background-lighten);
+  }
+
+  &:active {
+    color: var(--button-color-text);
+    background: var(--button-background-darken);
+    transform: translateY(1px);
+    transition: none;
+  }
+}
+
 .last-notes-title {
   @include title-medium;
 
+  display: block;
   margin-bottom: 32px;
   color: var(--color-title);
   font-weight: bold;

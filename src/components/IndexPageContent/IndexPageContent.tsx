@@ -39,6 +39,11 @@ export default function IndexPageContent({
                   В этом блоге я пишу о веб разработке, перевожу технические
                   статьи и другое.
                 </div>
+                <div className={cx('content__more')}>
+                  <Link href="/notes">
+                    <a className={cx('more')}>Узнать больше</a>
+                  </Link>
+                </div>
               </div>
             </Col>
             <Col xs={12} sm={6} md={5} className={cx('jumbotron__col')}>
@@ -55,7 +60,9 @@ export default function IndexPageContent({
         <Container>
           <Row>
             <Col>
-              <h3 className={cx('last-notes-title')}>Последние записи</h3>
+              <Link href="/notes">
+                <a className={cx('last-notes-title')}>Последние записи</a>
+              </Link>
             </Col>
           </Row>
           <Row>{renderLatestNotes()}</Row>

@@ -18,6 +18,10 @@ $accent_light: lighten($accent, 25);
   --color-theme-switcher-icon: #{$accent};
   --color-theme-switcher-fieldset: #{darken($white, 4%)};
   --color-image-placeholder: #{darken($white, 4%)};
+  --button-color-text: #{$white};
+  --button-background: #{$accent};
+  --button-background-lighten: #{lighten($accent, 10)};
+  --button-background-darken: #{darken($accent, 10)};
 
   &_dark {
     --color-accent: #{$accent_light};
@@ -33,5 +37,9 @@ $accent_light: lighten($accent, 25);
     --color-theme-switcher-icon: #{$accent_light};
     --color-theme-switcher-fieldset: #{lighten($black, 8%)};
     --color-image-placeholder: #{lighten($black, 8%)};
+    --button-color-text: #{$white};
+    --button-background: #{$accent};
+    --button-background-lighten: #{lighten($accent, 10)};
+    --button-background-darken: #{darken($accent, 10)};
   }
 }
