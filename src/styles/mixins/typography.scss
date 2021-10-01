@@ -29,10 +29,10 @@
 }
 
 @mixin title-small {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.2;
 
   @include tablet-up {
-    font-size: 18px;
+    font-size: 20px;
   }
 }

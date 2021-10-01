@@ -5,14 +5,12 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import SocialLinks from '@/components/SocialLinks';
-import formatDate from '@/helpers/formatDate';
 import GenericProps from '@/types/GenericProps';
 
 import styles from './Footer.module.scss';
 
 const cx = classnames.bind(styles);
 
-// TODO: add current year
 export default function Footer({
   className,
   ...props
