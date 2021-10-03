@@ -1,0 +1,32 @@
+@import '@/styles/mixins';
+
+.breadcrumbs {
+  display: flex;
+  margin: 0;
+  padding: 16px 0;
+  color: var(--color-text-light);
+  list-style: none;
+}
+
+.breadcrumbs__item {
+  &::after {
+    padding: 0 8px;
+    content: '/';
+  }
+
+  a {
+    @include link;
+
+    color: inherit;
+  }
+
+  &:last-child {
+    &::after {
+      content: none;
+    }
+
+    & a {
+      color: inherit;
+    }
+  }
+}
