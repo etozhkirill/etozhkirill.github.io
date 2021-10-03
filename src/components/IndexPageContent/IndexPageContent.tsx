@@ -5,7 +5,6 @@ import React from 'react';
 import memojiImg from '@/assets/images/memoji.png';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
-import LazyImage from '@/components/LazyImage';
 import NoteCard from '@/components/NoteCard';
 import Row from '@/components/Row';
 import GenericProps from '@/types/GenericProps';
