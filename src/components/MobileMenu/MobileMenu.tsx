@@ -45,7 +45,7 @@ export default function MobileMenu({
         <div className={cx('mobile-menu__header', 'header')}>
           <div className={cx('header__logo')}>
             <Link href="/">
-              <a>Кирилл Квашонин</a>
+              <a onClick={onClose}>Кирилл Квашонин</a>
             </Link>
           </div>
           <div className={cx('header__close-button')}>
@@ -64,12 +64,12 @@ export default function MobileMenu({
         <div className={cx('mobile-menu__nav', 'nav')}>
           <div className={cx('nav__item')}>
             <Link href="/notes">
-              <a>Блог</a>
+              <a onClick={onClose}>Блог</a>
             </Link>
           </div>
           <div className={cx('nav__item')}>
             <Link href="/about">
-              <a>Обо мне</a>
+              <a onClick={onClose}>Обо мне</a>
             </Link>
           </div>
         </div>
