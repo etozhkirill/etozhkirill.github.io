@@ -1,0 +1,13 @@
+@import '@/styles/mixins';
+
+.notes-list {
+  padding: 40px 0;
+}
+
+.notes-list__item {
+  margin-bottom: 60px;
+
+  @include tablet-up {
+    margin-bottom: 80px;
+  }
+}
