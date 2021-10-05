@@ -2,8 +2,12 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
-import remark from 'remark';
-import remarkHtml from 'remark-html';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
 import { NoteFileContent, NoteFileShortContent } from '@/types/NoteFileContent';
 
@@ -67,8 +71,13 @@ export class NoteService {
     );
     const noteFileContent = await fs.readFile(noteFilePath, 'utf8');
     const matterResult = matter(noteFileContent);
-    const processedContent = await remark()
-      .use(remarkHtml, { sanitize: false })
+
+    const processedContent = await unified()
+      .use(remarkParse)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
       .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
@@ -99,10 +108,6 @@ export class NoteService {
 }
 
 export default new NoteService();
-
-function sortByDate(date1: string, date2: string) {
-  return new Date(date2).getTime() - new Date(date1).getTime();
-}
 
 function filterByNull(val) {
   return val != null;

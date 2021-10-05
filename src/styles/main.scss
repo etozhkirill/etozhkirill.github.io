@@ -1,5 +1,5 @@
 @import '@/assets/fonts/pt_sans/stylesheet.css';
-@import '@/assets/fonts/pt_serif/stylesheet.css';
+@import '@/assets/fonts/ubuntu_mono/stylesheet.css';
 
 @import './theme.scss';
 @import './mixins.scss';
@@ -25,4 +25,8 @@ body {
 
 a {
   @include link;
+}
+
+code {
+  font-family: 'Ubuntu Mono', monospace;
 }

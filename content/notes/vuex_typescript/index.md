@@ -235,49 +235,43 @@ export interface GetterTree<S, R> {
 
 Для следующего примера я использую [vuex-class](https://github.com/ktsn/vuex-class), чтобы подключить простой компонент к Vuex.
 
-```markup
+```html
 <template>
   <div class="container">
     <div v-if="profile.user">
-      <p>
-        Full name: {{ fullName }}
-      </p>
-      <p>
-        Email: {{ email }}
-      </p>
+      <p>Full name: {{ fullName }}</p>
+      <p>Email: {{ email }}</p>
     </div>
-    <div v-if="profile.error">
-      Oops an error occured
-    </div>
+    <div v-if="profile.error">Oops an error occured</div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { State, Action, Getter } from "vuex-class";
-import Component from "vue-class-component";
-import { ProfileState, User } from "./store/profile/types";
-const namespace: string = "profile";
-@Component
-export default class UserDetail extends Vue {
-  @State("profile")
-  profile: ProfileState;
-  @Action("fetchData", { namespace })
-  fetchData: any;
-  @Getter("fullName", { namespace })
-  fullName: string;
+  import Vue from 'vue';
+  import { State, Action, Getter } from 'vuex-class';
+  import Component from 'vue-class-component';
+  import { ProfileState, User } from './store/profile/types';
+  const namespace: string = 'profile';
+  @Component
+  export default class UserDetail extends Vue {
+    @State('profile')
+    profile: ProfileState;
+    @Action('fetchData', { namespace })
+    fetchData: any;
+    @Getter('fullName', { namespace })
+    fullName: string;
 
-  mounted() {
-    // получение данных после монтирования компонента
-    this.fetchData();
-  }
+    mounted() {
+      // получение данных после монтирования компонента
+      this.fetchData();
+    }
 
-  // вычисляемое свойство email пользователя
-  get email() {
-    const user = this.profile && this.profile.user;
-    return (user && user.email) || "";
+    // вычисляемое свойство email пользователя
+    get email() {
+      const user = this.profile && this.profile.user;
+      return (user && user.email) || '';
+    }
   }
-}
 </script>
 ```
 
@@ -310,13 +304,9 @@ mounted() {
 
 Чтобы отрендерить что-то осмысленное, часть шаблона использует ранее объявленные геттеры для отображения `fullName` и базовое вычисляемое свойство, чтобы отобразить `email` пользователя.
 
-```markup
-<p>
-  Full name: {{ fullName }}
-</p>
-<p>
-  Email: {{ email }}
-</p>
+```html
+<p>Full name: {{ fullName }}</p>
+<p>Email: {{ email }}</p>
 ```
 
 ---

@@ -31,8 +31,8 @@ _Краткое примечание перед началом работы:_ ES
 
 **Текстовые инпуты**
 
-```markup
-<input v-model="message" placeholder="edit me">
+```html
+<input v-model="message" placeholder="edit me" />
 <p>Message: {{ message }}</p>
 
 <!-- OR -->
@@ -48,17 +48,27 @@ _Краткое примечание перед началом работы:_ ES
 
 Итак, что насчет радио-кнопок?
 
-```markup
-<input type="radio" value="One" v-model="picked">
-<input type="radio" value="Two" v-model="picked">
+```html
+<input type="radio" value="One" v-model="picked" />
+<input type="radio" value="Two" v-model="picked" />
 <span>Picked: {{ picked }}</span>
 ```
 
 Это эквивалентно:
 
-```markup
-<input type="radio" value="One" :checked="picked == 'One'" @change="e => picked = e.target.value">
-<input type="radio" value="Two" :checked="picked == 'Two'" @change="e => picked = e.target.value">
+```html
+<input
+  type="radio"
+  value="One"
+  :checked="picked == 'One'"
+  @change="e => picked = e.target.value"
+/>
+<input
+  type="radio"
+  value="Two"
+  :checked="picked == 'Two'"
+  @change="e => picked = e.target.value"
+/>
 <span>Picked: {{ picked }}</span>
 ```
 
@@ -68,36 +78,52 @@ _Краткое примечание перед началом работы:_ ES
 
 Чекбоксы немного сложнее, потому что они ведут себя по разному в зависимости от того используется один чекбокс с `v-model` или несколько.Если вы используете один чекбокс, `v-model` будет относиться к нему как к булевому значению и игнорировать `value`.
 
-```markup
-<input type="checkbox" value="foo" v-model="isChecked">
+```html
+<input type="checkbox" value="foo" v-model="isChecked" />
 ```
 
 это то же самое, что...
 
-```markup
-<input type="checkbox" value="foo" :checked="!!isChecked" @change="e => isChecked = e.target.checked">
+```html
+<input
+  type="checkbox"
+  value="foo"
+  :checked="!!isChecked"
+  @change="e => isChecked = e.target.checked"
+/>
 ```
 
 Если вы хотите, чтобы были другие значения вместо `true` и `false`, вы можете использовать атрибуты `true-value` и `false-value`, которые контролируют какие значения вашей модели будут установлены, в зависимости от того нажат чекбокс или нет.
 
-```markup
-<input type="checkbox" value="foo" v-model="isChecked" true-value="1" false-value="0">
+```html
+<input
+  type="checkbox"
+  value="foo"
+  v-model="isChecked"
+  true-value="1"
+  false-value="0"
+/>
 ```
 
 это то же самое, что...
 
-```markup
-<input type="checkbox" value="foo" :checked="isChecked == '1'" @change="e => isChecked = e.target.checked ? '1' : '0'">
+```html
+<input
+  type="checkbox"
+  value="foo"
+  :checked="isChecked == '1'"
+  @change="e => isChecked = e.target.checked ? '1' : '0'"
+/>
 ```
 
 Если у вас несколько чекбоксов, совместно использующих модель, то они будут заполнять массив со значениями выбранных чекбоксов, но убедитесь что модель, которую вы передали, является массивом, иначе вы получите странное поведение. Так же, атрибуты `true-value` и `false-value` больше не будут ни на что влиять.
 
-```markup
+```html
 <template>
   <div>
-    <input type="checkbox" value="foo" v-model="checkedVals">
-    <input type="checkbox" value="bar" v-model="checkedVals">
-    <input type="checkbox" value="baz" v-model="checkedVals">
+    <input type="checkbox" value="foo" v-model="checkedVals" />
+    <input type="checkbox" value="bar" v-model="checkedVals" />
+    <input type="checkbox" value="baz" v-model="checkedVals" />
   </div>
 </template>
 <script>
@@ -105,18 +131,18 @@ _Краткое примечание перед началом работы:_ ES
     data: () => ({
       checkedVals: ['bar']
     })
-  }
+  };
 </script>
 ```
 
 Эквивалент немного сложнее держать внутри шаблона, поэтому я перенесу часть логики в методы компонента:
 
-```markup
+```html
 <template>
   <div>
-    <input type="checkbox" value="foo" v-model="checkedVals">
-    <input type="checkbox" value="bar" v-model="checkedVals">
-    <input type="checkbox" value="baz" v-model="checkedVals">
+    <input type="checkbox" value="foo" v-model="checkedVals" />
+    <input type="checkbox" value="bar" v-model="checkedVals" />
+    <input type="checkbox" value="baz" v-model="checkedVals" />
   </div>
 </template>
 <script>
@@ -148,13 +174,13 @@ _Краткое примечание перед началом работы:_ ES
 
 И так...
 
-```markup
+```html
 <my-custom-component v-model="myProperty" />
 ```
 
 ...это то же самое, что...
 
-```markup
+```html
 <my-custom-component :value="myProperty" @input="val => myProperty = val" />
 ```
 
@@ -173,7 +199,7 @@ export default {
 
 `v-model` будет смотреть на эти свойства и вместо использования атрибута `value` будет использовать атрибут, который вы определили в `prop`, а так же вместо события `input` будет прослушивать событие которое вы определили в `event`. Таким образом, приведенный выше пример `my-custom-component` фактически будет следующим:
 
-```markup
+```html
 <my-custom-component :foo="myProperty" @bar="val => myProperty = val" />
 ```
 
@@ -183,41 +209,46 @@ export default {
 
 По сравнению с чекбоксами, кастомные радиокнопки довольно просты. Вот базовая кастомная радио-кнопка, которую я разрабатываю, просто оборачивая `input` в `label`, которая принимает свойство `label` чтобы добавить текст лэйбла.
 
-```markup
+```html
 <template>
   <label>
-    <input type="radio" :checked="shouldBeChecked" :value="value" @change="updateInput">
+    <input
+      type="radio"
+      :checked="shouldBeChecked"
+      :value="value"
+      @change="updateInput"
+    />
     {{ label }}
   </label>
 </template>
 <script>
-export default {
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props: {
-    value: {
-      type: String,
+  export default {
+    model: {
+      prop: 'modelValue',
+      event: 'change'
     },
-    modelValue: {
-      default: ""
+    props: {
+      value: {
+        type: String,
+      },
+      modelValue: {
+        default: ""
+      },
+      label: {
+        type: String,
+        required: true
+      },
     },
-    label: {
-      type: String,
-      required: true
-    },
-  },
-  computed: {
-    shouldBeChecked() {
-      return this.modelValue == this.value    }
-  }
-  methods: {
-    updateInput() {
-      this.$emit('change', this.value)
+    computed: {
+      shouldBeChecked() {
+        return this.modelValue == this.value    }
+    }
+    methods: {
+      updateInput() {
+        this.$emit('change', this.value)
+      }
     }
   }
-}
 </script>
 ```
 
@@ -233,67 +264,72 @@ export default {
 
 Таким образом, код будет структурирован аналогично коду кастомной радио-кнопки, но внутри `shouldBeChecked` и `updateInput` логика будет поделена в зависимости от того является `modelValue` массивом или нет.
 
-```markup
+```html
 <template>
   <label>
-    <input type="checkbox" :checked="shouldBeChecked" :value="value" @change="updateInput">
+    <input
+      type="checkbox"
+      :checked="shouldBeChecked"
+      :value="value"
+      @change="updateInput"
+    />
     {{ label }}
   </label>
 </template>
 <script>
-export default {
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props: {
-    value: {
-      type: String,
+  export default {
+    model: {
+      prop: 'modelValue',
+      event: 'change'
     },
-    modelValue: {
-      default: false
-    },
-    label: {
-      type: String,
-      required: true
-    },
-    // Мы установили `true-value` и `false-value` в true и false по-умолчанию, таким образом
-    // мы всегда можем использовать их вместо проверки на то, установлены они или нет.
-    // Также здесь мы можем использовать camelCase, дефис разделяющий имя атрибута
-    // все равно будет работать
-    trueValue: {
-      default: true
-    },
-    falseValue: {
-      default: false
-    }
-  },
-  computed: {
-    shouldBeChecked() {
-      if (this.modelValue instanceof Array) {
-        return this.modelValue.includes(this.value)
+    props: {
+      value: {
+        type: String,
+      },
+      modelValue: {
+        default: false
+      },
+      label: {
+        type: String,
+        required: true
+      },
+      // Мы установили `true-value` и `false-value` в true и false по-умолчанию, таким образом
+      // мы всегда можем использовать их вместо проверки на то, установлены они или нет.
+      // Также здесь мы можем использовать camelCase, дефис разделяющий имя атрибута
+      // все равно будет работать
+      trueValue: {
+        default: true
+      },
+      falseValue: {
+        default: false
       }
-      // Обратите внимание, что `true-value` и` false-value` являются camelCase в JS
-      return this.modelValue === this.trueValue    }
-  },
-  methods: {
-    updateInput(event) {
-      let isChecked = event.target.checked      if (this.modelValue instanceof Array) {
-        let newValue = [...this.modelValue]
-
-        if (isChecked) {
-          newValue.push(this.value)
-        } else {
-          newValue.splice(newValue.indexOf(this.value), 1)
+    },
+    computed: {
+      shouldBeChecked() {
+        if (this.modelValue instanceof Array) {
+          return this.modelValue.includes(this.value)
         }
+        // Обратите внимание, что `true-value` и` false-value` являются camelCase в JS
+        return this.modelValue === this.trueValue    }
+    },
+    methods: {
+      updateInput(event) {
+        let isChecked = event.target.checked      if (this.modelValue instanceof Array) {
+          let newValue = [...this.modelValue]
 
-        this.$emit('change', newValue)
-      } else {
-        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+          if (isChecked) {
+            newValue.push(this.value)
+          } else {
+            newValue.splice(newValue.indexOf(this.value), 1)
+          }
+
+          this.$emit('change', newValue)
+        } else {
+          this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+        }
       }
     }
   }
-}
 </script>
 ```
 

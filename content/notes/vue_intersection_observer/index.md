@@ -109,9 +109,9 @@ export default {
 
 Согласно шаблону компонента, нам просто нужен любой элемент, поэтому мы можем использовать безразмерный `<div>`:
 
-```markup
+```html
 <template>
-  <div class="observer"/>
+  <div class="observer" />
 </template>
 ```
 
@@ -138,32 +138,32 @@ export default {
 
 Соберем все вместе в компонент *Observer.vue*:
 
-```markup
+```html
 <!-- Observer.vue -->
 <template>
-  <div class="observer"/>
+  <div class="observer" />
 </template>
 
 <script>
-export default {
-  props: ['options'],
-  data: () => ({
-    observer: null,
-  }),
-  mounted() {
-    const options = this.options || {};
-    this.observer = new IntersectionObserver(([entry]) => {
-      if (entry && entry.isIntersecting) {
-        this.$emit("intersect");
-      }
-    }, options);
+  export default {
+    props: ['options'],
+    data: () => ({
+      observer: null
+    }),
+    mounted() {
+      const options = this.options || {};
+      this.observer = new IntersectionObserver(([entry]) => {
+        if (entry && entry.isIntersecting) {
+          this.$emit('intersect');
+        }
+      }, options);
 
-    this.observer.observe(this.$el);
-  },
-  destroyed() {
-    this.observer.disconnect();
-  },
-};
+      this.observer.observe(this.$el);
+    },
+    destroyed() {
+      this.observer.disconnect();
+    }
+  };
 </script>
 ```
 
@@ -171,7 +171,7 @@ export default {
 
 Представьте, что у вас есть компонент списка, подобный следующему:
 
-```markup
+```html
 <template>
   <div>
     <ul>
@@ -183,13 +183,13 @@ export default {
 </template>
 
 <script>
-export default {
-  data: () => ({ items: [] }),
-  async mounted() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/comment");
-    this.items = await res.json();
-  }
-};
+  export default {
+    data: () => ({ items: [] }),
+    async mounted() {
+      const res = await fetch('https://jsonplaceholder.typicode.com/comment');
+      this.items = await res.json();
+    }
+  };
 </script>
 ```
 
@@ -224,24 +224,27 @@ export default {
 
 Сперва, импортируем компонент `Observer` и добавим его в компонент `InfiniteScroll`, прямо под списком:
 
-```markup
+```html
 <template>
   <div>
     <ul>
-      <li class="list-item" v-for="item in items" :key="item.id">{{item.name}}</li>
+      <li class="list-item" v-for="item in items" :key="item.id">
+        {{item.name}}
+      </li>
     </ul>
-    <Observer @intersect="intersected"/>
+    <Observer @intersect="intersected" />
   </div>
 </template>
 
 <script>
-import Observer from "./Observer";
+  import Observer from './Observer';
 
-export default {
-  // ...
-  components: {
-    Observer  }
-};
+  export default {
+    // ...
+    components: {
+      Observer
+    }
+  };
 </script>
 ```
 
@@ -268,36 +271,39 @@ export default {
 
 Компонент бесконечной прокрутки, все вместе:
 
-```markup
+```html
 <!-- InfiniteScroll.vue -->
 <template>
   <div>
     <ul>
-      <li class="list-item" v-for="item in items" :key="item.id">{{item.name}}</li>
+      <li class="list-item" v-for="item in items" :key="item.id">
+        {{item.name}}
+      </li>
     </ul>
-    <Observer @intersect="intersected"/>
+    <Observer @intersect="intersected" />
   </div>
 </template>
 
 <script>
-import Observer from "./Observer";
+  import Observer from './Observer';
 
-export default {
-  data: () => ({ page: 1, items: [] }),
-  methods: {
-    async intersected() {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/comments?_page=${
-        this.page      }&_limit=50`);
+  export default {
+    data: () => ({ page: 1, items: [] }),
+    methods: {
+      async intersected() {
+        const res = await fetch(
+          `https://jsonplaceholder.typicode.com/comments?_page=${this.page}&_limit=50`
+        );
 
-      this.page++;
-      const items = await res.json();
-      this.items = [...this.items, ...items];
+        this.page++;
+        const items = await res.json();
+        this.items = [...this.items, ...items];
+      }
     },
-  },
-  components: {
-    Observer,
-  },
-};
+    components: {
+      Observer
+    }
+  };
 </script>
 ```
 

@@ -5,6 +5,8 @@ $accent: #1467af;
 $accent_light: lighten($accent, 25);
 
 .theme {
+  @import '~highlight.js/scss/atom-one-light.scss';
+
   --color-accent: #{$accent};
   --color-link: #{$accent};
   --color-link-lighten: #{lighten($accent, 10)};
@@ -24,6 +26,8 @@ $accent_light: lighten($accent, 25);
   --button-background-darken: #{darken($accent, 10)};
 
   &_dark {
+    @import '~highlight.js/scss/atom-one-dark.scss';
+
     --color-accent: #{$accent_light};
     --color-link: #{$accent_light};
     --color-link-lighten: #{lighten($accent_light, 10)};

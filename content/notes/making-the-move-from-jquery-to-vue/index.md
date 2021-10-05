@@ -87,36 +87,34 @@ new Vue({
 
 Еще один аспект который вы найдете интересным или страшным - это то как найти что-либо в DOM. Это немного расплывчато, но давайте рассмотрим пример. У нас есть кнопка, и по клику на нее мы что-то делаем. Ниже сокращенный пример того как это может выглядеть:
 
-```markup
+```html
 <button id="myButton">Click Me!</button>
 <!-- TODO... -->
 <script>
-$(document).ready(function() {
-
-  $('#myButton').click(function() {
-    alert(1);
+  $(document).ready(function () {
+    $('#myButton').click(function () {
+      alert(1);
+    });
   });
-
-});
 </script>
 ```
 
 Теперь давайте сравним с тем, как это можно сделать на Vue:
 
-```markup
+```html
 <div id="app">
   <button v-on:click="doSomething">Click Me!</button>
 </div>
 
 <script>
-const app = new Vue({
-  el:'#app',
-  methods: {
-    doSomething: function() {
-      alert(1);
+  const app = new Vue({
+    el: '#app',
+    methods: {
+      doSomething: function () {
+        alert(1);
+      }
     }
-  }
-});
+  });
 </script>
 ```
 
@@ -124,26 +122,24 @@ Vue приложение немного более многословно, но 
 
 Давайте рассмотрим другой пример: поиск и изменение текста в DOM. Представьте кнопку по клику на которою меняется текст в другой части DOM.
 
-```markup
+```html
 <button id="myButton">Click Me!</button>
 <span id="result"></span>
 
 <!-- TODO... -->
 
 <script>
-$(document).ready(function() {
-
-  $('#myButton').click(function() {
-    $('#result').text('You clicked me, thanks!');
+  $(document).ready(function () {
+    $('#myButton').click(function () {
+      $('#result').text('You clicked me, thanks!');
+    });
   });
-
-});
 </script>
 ```
 
 Я добавил новый span и теперь, когда кнопка нажата, мы используем другой селектор, чтобы найти его и используем метод jQuery для изменения текста внутри. Теперь рассмотрим версию на Vue:
 
-```markup
+```html
 <div id="app">
   <button v-on:click="doSomething">Нажми на меня!</button>
   <!-- По клику изменяем текст в span -->
@@ -151,17 +147,17 @@ $(document).ready(function() {
 </div>
 
 <script>
-const app = new Vue({
-  el: '#app',
-  data: {
-    resultText: ''
-  },
-  methods: {
-    doSomething: function() {
-      this.resultText = 'Вы нажали на меня, спасибо!';
+  const app = new Vue({
+    el: '#app',
+    data: {
+      resultText: ''
+    },
+    methods: {
+      doSomething: function () {
+        this.resultText = 'Вы нажали на меня, спасибо!';
+      }
     }
-  }
-});
+  });
 </script>
 ```
 
@@ -173,26 +169,25 @@ const app = new Vue({
 
 Работая с формами вероятно одна из наиболее распространенных и полезных вещей, которые мы делаем с помощью JavaScript. Даже до JavaScript, большая часть моей ранней "веб разработки" заключалась в написании Perl скриптов для обработки представлений форм. Как главный способ принятия пользовательского ввода, формы всегда были критически важны для веба, и это, вероятно, так и останется в течение довольно длительного времени. Давайте рассмотрим простой пример на jQuery с чтением нескольких полей формы и установки других:
 
-```markup
+```html
 <form>
-  <input type="number" id="first"> +
-  <input type="number" id="second"> =
-  <input type="number" id="sum">
+  <input type="number" id="first" /> + <input type="number" id="second" /> =
+  <input type="number" id="sum" />
   <button id="sumButton">Sum</button>
 </form>
 
 <script>
-$(document).ready(function() {
-  let $first = $('#first');
-  let $second = $('#second');
-  let $sum = $('#sum');
-  let $button = $('#sumButton');
-    $button.on('click', function(e) {
-    e.preventDefault();
-    let total = parseInt($first.val(),10) + parseInt($second.val(),10);
-    $sum.val(total);
+  $(document).ready(function () {
+    let $first = $('#first');
+    let $second = $('#second');
+    let $sum = $('#sum');
+    let $button = $('#sumButton');
+    $button.on('click', function (e) {
+      e.preventDefault();
+      let total = parseInt($first.val(), 10) + parseInt($second.val(), 10);
+      $sum.val(total);
+    });
   });
-});
 </script>
 ```
 
@@ -200,28 +195,28 @@ $(document).ready(function() {
 
 Теперь давайте рассмотрим версию на Vue:
 
-```markup
+```html
 <form id="myForm">
-  <input type="number" v-model.number="first"> +
-  <input type="number" v-model.number="second"> =
-  <input type="number" v-model="sum">
+  <input type="number" v-model.number="first" /> +
+  <input type="number" v-model.number="second" /> =
+  <input type="number" v-model="sum" />
   <button @click.prevent="doSum">Sum</button>
 </form>
 
 <script>
-new Vue({
-  el: '#myForm',
-  data: {
-    first: 0,
-    second: 0,
-    sum: 0
-  },
-  methods: {
-    doSum: function() {
-      this.sum = this.first + this.second;
+  new Vue({
+    el: '#myForm',
+    data: {
+      first: 0,
+      second: 0,
+      sum: 0
+    },
+    methods: {
+      doSum: function () {
+        this.sum = this.first + this.second;
+      }
     }
-  }
-})
+  });
 </script>
 ```
 
@@ -235,26 +230,26 @@ new Vue({
 
 В итоге, мы можем даже полностью избавится от кнопки:
 
-```markup
+```html
 <form id="myForm">
-  <input type="number" v-model.number="first"> +
-  <input type="number" v-model.number="second"> =
-  <input type="number" v-model="sum">
+  <input type="number" v-model.number="first" /> +
+  <input type="number" v-model.number="second" /> =
+  <input type="number" v-model="sum" />
 </form>
 
 <script>
-new Vue({
-  el: '#myForm',
-  data: {
-    first: 0,
-    second: 0
-  },
-  computed: {
-    sum: function() {
-      return this.first + this.second;
+  new Vue({
+    el: '#myForm',
+    data: {
+      first: 0,
+      second: 0
+    },
+    computed: {
+      sum: function () {
+        return this.first + this.second;
+      }
     }
-  }
-})
+  });
 </script>
 ```
 
@@ -310,21 +305,20 @@ fetch('http://example.com/movies.json')
 
 Axios и Fetch покрывают все типы HTTP запросов, так что любой из них будет соответствовать любому количеству потребностей. Давайте рассмотрим простое сравнение. Ниже простое демо на jQuery, использующее [Star Wars API](https://swapi.co/).
 
-```markup
+```html
 <h1>Star Wars Films</h1>
-<ul id="films">
-</ul>
+<ul id="films"></ul>
 
 <script>
-$(document).ready(function() {
-  $.get('https://swapi.com/api/films', function(res) {
-    let list = '';
-    res.results.forEach(function(r) {
-      list += `<li>${r.title}</li>`;
+  $(document).ready(function () {
+    $.get('https://swapi.com/api/films', function (res) {
+      let list = '';
+      res.results.forEach(function (r) {
+        list += `<li>${r.title}</li>`;
+      });
+      $('#films').html(list);
     });
-    $('#films').html(list);
   });
-});
 </script>
 ```
 
@@ -332,7 +326,7 @@ $(document).ready(function() {
 
 Теперь давайте рассмотрим этот пример с использованием Vue:
 
-```markup
+```html
 <div id="app">
   <h1>Star Wars Films</h1>
   <ul>
@@ -341,16 +335,19 @@ $(document).ready(function() {
 </div>
 
 <script>
-const app = new Vue({
-  el: '#app',
-  data: {
-    films: []
-  },   created() {     fetch('https://swapi.com/api/films')
-    .then(res => res.json())
-    .then(res => {
-      this.films = res.results;      });
-  }
-})
+  const app = new Vue({
+    el: '#app',
+    data: {
+      films: []
+    },
+    created() {
+      fetch('https://swapi.com/api/films')
+        .then((res) => res.json())
+        .then((res) => {
+          this.films = res.results;
+        });
+    }
+  });
 </script>
 ```
 
@@ -443,13 +440,13 @@ $(document).ready(() => {
 
 Вы можете работать с полной версией данного demo используя CodePen ниже.
 
-<div>
+<p>
 <iframe height="300" style="width: 100%;" scrolling="no" title="jQuery Full" src="https://codepen.io/cfjedimaster/embed/MRezop?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/cfjedimaster/pen/MRezop">
   jQuery Full</a> by Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
-</div>
+</p>
 
 Теперь давайте рассмотрим Vue версию. И вновь начнем с разметки:
 
@@ -541,13 +538,13 @@ const app = new Vue({
 
 Как и раньше, у меня есть для вас CodePen, чтобы вы могли попробовать это самостоятельно:
 
-<div>
+<p>
 <iframe height="300" style="width: 100%;" scrolling="no" title="Vue Full" src="https://codepen.io/cfjedimaster/embed/wZWQLz?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/cfjedimaster/pen/wZWQLz">
   Vue Full</a> by Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
-</div>
+</p>
 
 ### Смерть jQuery! Да здравствует Vue!
 

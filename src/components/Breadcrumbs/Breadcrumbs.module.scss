@@ -2,6 +2,7 @@
 
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 16px 0;
   color: var(--color-text-light);
@@ -27,6 +28,7 @@
 
     & a {
       color: inherit;
+      cursor: default;
     }
   }
 }

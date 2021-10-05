@@ -1,26 +1,24 @@
 import { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
 
-import Col from '@/components/Col';
-import Container from '@/components/Container';
+import NotePageContent from '@/components/NotePageContent';
 import Page from '@/components/Page';
-import Row from '@/components/Row';
 import noteService from '@/services/NoteService';
+import BreadcrumbsLink from '@/types/BreadcrumbsLink';
 import { NoteFileContent } from '@/types/NoteFileContent';
 
 export default function NotePage({
   note
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const breadcrumbs: BreadcrumbsLink[] = [
+    { href: '/', name: 'Главная' },
+    { href: '/notes', name: 'Блог' },
+    { href: `/notes/${note.slug}`, name: note.data.title }
+  ];
+
   return (
-    <Page>
-      <Container>
-        <Row>
-          <Col>
-            <h1>{note.data.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: note.content }} />
-          </Col>
-        </Row>
-      </Container>
+    <Page breadcrumbs={breadcrumbs}>
+      <NotePageContent note={note} />
     </Page>
   );
 }

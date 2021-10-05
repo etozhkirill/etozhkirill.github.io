@@ -34,6 +34,7 @@ export default function NoteCardSecondary({
             <div className={cx('content__image')}>
               <LazyImage
                 height="240px"
+                type="background-image"
                 src={`/notes/${note.slug}/${note.data.image}`}
               />
             </div>

@@ -31,6 +31,7 @@ export default function NoteCard({
           <div className={cx('note-card__image')}>
             <LazyImage
               height="180px"
+              type="background-image"
               src={`/notes/${note.slug}/${note.data.image}`}
             />
           </div>
