@@ -24,6 +24,8 @@ $accent_light: lighten($accent, 25);
   --button-background: #{$accent};
   --button-background-lighten: #{lighten($accent, 10)};
   --button-background-darken: #{darken($accent, 10)};
+  --background-inline-code: #{darken($white, 4%)};
+  --background-hr: #{lighten($black, 60%)};
 
   &_dark {
     @import '~highlight.js/scss/atom-one-dark.scss';
@@ -45,5 +47,7 @@ $accent_light: lighten($accent, 25);
     --button-background: #{$accent};
     --button-background-lighten: #{lighten($accent, 10)};
     --button-background-darken: #{darken($accent, 10)};
+    --background-inline-code: #{lighten($black, 8%)};
+    --background-hr: #{lighten($black, 20%)};
   }
 }

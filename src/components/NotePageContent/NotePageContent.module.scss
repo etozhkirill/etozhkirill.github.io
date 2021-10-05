@@ -18,7 +18,6 @@
 }
 
 .note-page-content__image {
-  height: 400px;
   margin-bottom: 32px;
   overflow: hidden;
   border-radius: 8px;
@@ -69,7 +68,7 @@
   }
 
   h3 {
-    @include title-small;
+    @include title-medium-secondary;
   }
 
   blockquote {
@@ -102,6 +101,15 @@
     }
   }
 
+  hr {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 64px 0;
+    background: var(--background-hr);
+    border: 0;
+  }
+
   iframe {
     width: 100%;
   }
@@ -109,5 +117,11 @@
   pre {
     overflow: hidden;
     border-radius: 8px;
+  }
+
+  code {
+    padding: 0.2em 0.4em;
+    background: var(--background-inline-code);
+    border-radius: 6px;
   }
 }

@@ -35,10 +35,7 @@ export default function NotePageContent({
                 {formatDate(note.data.date)}
               </div>
               <div className={cx('note-page-content__image')}>
-                <LazyImage
-                  height={'100%'}
-                  /*src={note.data.image}*/ src="https://kirillurgant.com/uploads/making-the-move-from-jquery-to-vue/2019-4-5_22-50-3.jpeg"
-                />
+                <LazyImage height={'400px'} adaptHeight src={note.data.image} />
               </div>
               <div
                 className={cx('note-page-content__content')}

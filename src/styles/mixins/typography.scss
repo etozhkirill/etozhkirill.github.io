@@ -10,11 +10,11 @@
 }
 
 @mixin title-big {
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1.2;
 
   @include tablet-up {
-    font-size: 32px;
+    font-size: 42px;
   }
 }
 
@@ -24,6 +24,15 @@
 
   @include tablet-up {
     font-size: 32px;
+  }
+}
+
+@mixin title-medium-secondary {
+  font-size: 22px;
+  line-height: 1.2;
+
+  @include tablet-up {
+    font-size: 28px;
   }
 }
 
