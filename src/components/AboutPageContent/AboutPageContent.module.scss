@@ -1,0 +1,36 @@
+@import '@/styles/mixins';
+
+.about-page-content {
+  padding: 40px 0;
+}
+
+.title {
+  @include title-big;
+
+  margin: 0 0 32px 0;
+  color: var(--color-title);
+}
+
+.photo {
+  overflow: hidden;
+  border-radius: 8px;
+  filter: grayscale(30%);
+}
+
+.content {
+  font-size: 16px;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: 18px;
+  }
+}
+
+.content__paragraph {
+  margin: 32px 0;
+}
+
+.previous {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
