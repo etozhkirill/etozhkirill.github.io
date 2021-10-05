@@ -1,0 +1,18 @@
+@import '@/styles/mixins';
+
+.wrapper {
+  padding: 80px 0;
+  background: var(--background-secondary);
+}
+
+.title {
+  @include title-huge;
+
+  margin: 0 0 32px 0;
+  color: var(--color-title);
+}
+
+.description {
+  color: var(--color-text-light);
+  font-size: 18px;
+}
