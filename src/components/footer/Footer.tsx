@@ -24,7 +24,7 @@ export default function Footer({
               <div className={cx('footer__text')}>
                 © Спроектировано и разработано{' '}
                 <a
-                  href="https://github.com/etozhkirill"
+                  href="https://twitter.com/etozhkirill"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
