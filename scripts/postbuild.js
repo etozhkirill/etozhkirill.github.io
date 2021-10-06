@@ -35,4 +35,10 @@ const assetsFolderName = 'assets';
   await Promise.all(copyingPromises);
 
   console.log('Assets were copied to build.');
+
+  console.log('Copy 404 page...');
+  await fs.copyFile(
+    path.join(buildFolderPath, '404/index.html'),
+    path.join(buildFolderPath, '404.html')
+  );
 })();

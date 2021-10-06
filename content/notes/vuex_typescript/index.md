@@ -317,4 +317,4 @@ mounted() {
 
 Надеюсь, данная статья вам понравилась!
 
-_Оригинальная статья: https://codeburst.io/vuex-and-typescript-3427ba78cfa8_
+_Оригинальная статья: [https://codeburst.io/vuex-and-typescript-3427ba78cfa8](https://codeburst.io/vuex-and-typescript-3427ba78cfa8)_
