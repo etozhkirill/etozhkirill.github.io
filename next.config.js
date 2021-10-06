@@ -1,8 +1,16 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  trailingSlash: true
-};
+module.exports = () => {
+  const env = {
+    LOCATION_ORIGIN:
+      process.env['LOCATION_ORIGIN'] ||
+      `http://localhost:${process.env['PORT']}`
+  };
 
-module.exports = nextConfig;
+  /**
+   * @type {import('next').NextConfig}
+   */
+  const nextConfig = {
+    env,
+    trailingSlash: true
+  };
+  return nextConfig;
+};

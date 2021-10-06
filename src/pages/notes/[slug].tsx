@@ -16,8 +16,17 @@ export default function NotePage({
     { href: `/notes/${note.slug}`, name: note.data.title }
   ];
 
+  const meta = {
+    title: note.data.title,
+    description: note.data.description,
+    author: 'Кирилл Квашонин',
+    'og:title': note.data.title,
+    'og:description': note.data.description,
+    'og:image': `${process.env.LOCATION_ORIGIN}/notes/${note.slug}/${note.data.image}`
+  };
+
   return (
-    <Page breadcrumbs={breadcrumbs}>
+    <Page breadcrumbs={breadcrumbs} meta={meta}>
       <NotePageContent note={note} />
     </Page>
   );
