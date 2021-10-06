@@ -13,7 +13,7 @@ date: '2018-06-08'
 
 Представьте компонент, который может рендерить древовидную структуру, например отображение дерева директорий.
 
-```markup
+```txt
 + Root directory
   + Directory A
     + Directory A1
@@ -44,7 +44,7 @@ const tree = {
 
 Tree.vue
 
-```markup
+```html
 <template>
   <div class="tree">
     <ul class="tree-list">
@@ -54,21 +54,23 @@ Tree.vue
 </template>
 
 <script>
-import NodeTree from "./NodeTree";
+  import NodeTree from './NodeTree';
 
-export default {
-  props: {
-    treeData: Object  },
-  components: {
-    NodeTree  }
-};
+  export default {
+    props: {
+      treeData: Object
+    },
+    components: {
+      NodeTree
+    }
+  };
 </script>
 
 <style>
-.tree-list ul {
-  padding-left: 16px;
-  margin: 6px 0;
-}
+  .tree-list ul {
+    margin: 6px 0;
+    padding-left: 16px;
+  }
 </style>
 ```
 
@@ -84,7 +86,7 @@ NodeTree должен отображать лэйблы, но в то же вр�
 
 NodeTree.vue
 
-```markup
+```html
 <template>
   <li class="node-tree">
     <span class="label">{{ node.label }}</span>
@@ -92,10 +94,11 @@ NodeTree.vue
 </template>
 
 <script>
-export default {
-  props: {
-    node: Object  }
-};
+  export default {
+    props: {
+      node: Object
+    }
+  };
 </script>
 ```
 
@@ -107,7 +110,7 @@ export default {
 
 NodeTree.vue
 
-```markup
+```html
 <template>
   <li class="node-tree">
     <span class="label">{{ node.label }}</span>
@@ -119,11 +122,12 @@ NodeTree.vue
 </template>
 
 <script>
-export default {
-  name: "node",
-  props: {
-    node: Object  }
-};
+  export default {
+    name: 'node',
+    props: {
+      node: Object
+    }
+  };
 </script>
 ```
 
@@ -137,7 +141,7 @@ export default {
 
 App.vue
 
-```markup
+```html
 <template>
   <div>
     <tree :tree-data="tree"></tree>
@@ -145,27 +149,28 @@ App.vue
 </template>
 
 <script>
-import Tree from "./Tree";
+  import Tree from './Tree';
 
-export default {
-  data: () => ({
-    tree: {
-      label: "A cool folder",
-      children: [
-        {
-          label: "A cool sub-folder 1",
-          children: [
-            { label: "A cool sub-sub-folder 1" },
-            { label: "A cool sub-sub-folder 2" }
-          ]
-        },
-        { label: "This one is not that cool" }
-      ]
+  export default {
+    data: () => ({
+      tree: {
+        label: 'A cool folder',
+        children: [
+          {
+            label: 'A cool sub-folder 1',
+            children: [
+              { label: 'A cool sub-sub-folder 1' },
+              { label: 'A cool sub-sub-folder 2' }
+            ]
+          },
+          { label: 'This one is not that cool' }
+        ]
+      }
+    }),
+    components: {
+      Tree
     }
-  }),
-  components: {
-    Tree  }
-};
+  };
 </script>
 ```
 
