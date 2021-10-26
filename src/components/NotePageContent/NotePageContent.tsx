@@ -1,4 +1,5 @@
 import classnames from 'classnames/bind';
+import dynamic from 'next/dynamic';
 import React from 'react';
 
 import Col from '@/components/Col';
@@ -12,6 +13,10 @@ import { NoteFileContent } from '@/types/NoteFileContent';
 import styles from './NotePageContent.module.scss';
 
 const cx = classnames.bind(styles);
+
+const DynamicDisqus = dynamic(() => import('@/components/Disqus'), {
+  ssr: false
+});
 
 interface Props extends GenericProps {
   note: NoteFileContent;
@@ -41,6 +46,9 @@ export default function NotePageContent({
                 className={cx('note-page-content__content')}
                 dangerouslySetInnerHTML={{ __html: note.content }}
               />
+              <div className={cx('note-page-content__comments')}>
+                <DynamicDisqus note={note} />
+              </div>
             </div>
           </Col>
         </Row>
