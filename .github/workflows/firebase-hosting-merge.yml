@@ -9,7 +9,8 @@ name: Deploy to Firebase Hosting on merge
 
 env:
   LOCATION_ORIGIN: https://etozhkirill.ru
-  YM_COUNTER_ID: ${{ secrets.YM_COUNTER_ID }}
+  NEXT_PUBLIC_YM_COUNTER_ID: ${{ secrets.NEXT_PUBLIC_YM_COUNTER_ID }}
+  NEXT_PUBLIC_DISQUS_SHORTNAME: ${{ secrets.NEXT_PUBLIC_DISQUS_SHORTNAME }}
 
 jobs:
   build_and_deploy:
