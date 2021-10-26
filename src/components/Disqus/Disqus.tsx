@@ -8,6 +8,8 @@ interface Props {
   note: NoteFileContent;
 }
 
+const { NEXT_PUBLIC_DISQUS_SHORTNAME } = process.env;
+
 export default function Disqus({ note }: Props): React.ReactElement {
   const [render, setRender] = React.useState(false);
   const { activeThemeName } = useThemeContext();
@@ -22,7 +24,7 @@ export default function Disqus({ note }: Props): React.ReactElement {
 
   return (
     <DiscussionEmbed
-      shortname="kirillurgant"
+      shortname={NEXT_PUBLIC_DISQUS_SHORTNAME}
       config={{
         language: 'ru',
         identifier: note.slug,
