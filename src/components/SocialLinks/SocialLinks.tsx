@@ -14,19 +14,19 @@ const cx = classnames.bind(styles);
 
 const socials = [
   {
-    link: 'https://github.com/etozhkirill',
+    link: 'https://github.com/kvashonin',
     iconSrc: githubIcon.src
   },
   {
-    link: 'https://t.me/etozhkirill',
+    link: 'https://t.me/kvashonin',
     iconSrc: telegramIcon.src
   },
   {
-    link: 'https://twitter.com/etozhkirill',
+    link: 'https://twitter.com/kvashonin',
     iconSrc: twitterIcon.src
   },
   {
-    link: 'https://www.instagram.com/etozhkirill',
+    link: 'https://www.instagram.com/k.kvashonin',
     iconSrc: instagramIcon.src
   }
 ];

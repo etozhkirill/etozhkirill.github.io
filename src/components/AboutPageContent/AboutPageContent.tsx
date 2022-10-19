@@ -84,41 +84,41 @@ export default function AboutPageContent({
               <p className={cx('content__paragraph')}>
                 <div>
                   <a
-                    href="https://github.com/etozhkirill"
+                    href="https://github.com/kvashonin"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    https://github.com/etozhkirill
+                    https://github.com/kvashonin
                   </a>{' '}
                   - гитхаб
                 </div>
                 <div>
                   <a
-                    href="https://t.me/etozhkirill"
+                    href="https://t.me/kvashonin"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    https://t.me/etozhkirill
+                    https://t.me/kvashonin
                   </a>{' '}
                   - телеграм
                 </div>
                 <div>
                   <a
-                    href="https://twitter.com/etozhkirill"
+                    href="https://twitter.com/kvashonin"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    https://twitter.com/etozhkirill
+                    https://twitter.com/kvashonin
                   </a>{' '}
                   - твиттер
                 </div>
                 <div>
                   <a
-                    href="https://www.instagram.com/etozhkirill"
+                    href="https://www.instagram.com/k.kvashonin"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    https://www.instagram.com/etozhkirill
+                    https://www.instagram.com/k.kvashonin
                   </a>{' '}
                   - инстаграм
                 </div>

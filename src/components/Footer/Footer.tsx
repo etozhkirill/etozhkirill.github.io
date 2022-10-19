@@ -24,11 +24,11 @@ export default function Footer({
               <div className={cx('footer__text')}>
                 © Спроектировано и разработано{' '}
                 <a
-                  href="https://twitter.com/etozhkirill"
+                  href="https://twitter.com/kvashonin"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @etozhkirill
+                  @kvashonin
                 </a>{' '}
                 2017 - {new Date().getFullYear()}.
               </div>
